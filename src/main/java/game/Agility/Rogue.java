@@ -1,4 +1,6 @@
-package game;
+package game.Agility;
+
+import game.Agility.Agility;
 
 public class Rogue extends Agility {
     int venom;

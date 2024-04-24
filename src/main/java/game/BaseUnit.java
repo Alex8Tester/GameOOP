@@ -1,6 +1,6 @@
 package game;
 
-abstract class BaseUnit {
+public abstract class BaseUnit {
     private String name;
     private int HP;
     private int maxHP;
@@ -41,34 +41,4 @@ abstract class BaseUnit {
 
 
 }
-class Intellect extends BaseUnit{
-    private int intellect;
-    private int magic;
-    private int maxMagic;
-    public Intellect(String name, int HP, int maxHP, int attack, int attackRange, int defend, int initiative, int level, int experience,
-                     int intellect, int magic, int maxMagic) {
-        super(name, HP, maxHP, attack, attackRange, defend, initiative, level, experience);
-        this.intellect = intellect;
-        this.maxMagic = this.magic = magic;
-    }
-}
-class Strength extends BaseUnit{
-    private int strength;
-    private int stamina;
-    private int maxStamina;
-    public Strength(String name, int HP, int maxHP, int attack, int attackRange, int defend, int initiative, int level, int experience,
-                    int strength, int stamina, int maxStamina) {
-        super(name, HP, maxHP, attack, attackRange, defend, initiative, level, experience);
-        this.strength = strength;
-        this.maxStamina = this.stamina = stamina;
 
-    }
-}
-class Agility extends BaseUnit{
-    private int agility;
-    public Agility(String name, int HP, int maxHP, int attack, int attackRange, int defend, int initiative, int level, int experience,
-                   int agility) {
-        super(name, HP, maxHP, attack, attackRange, defend, initiative, level, experience);
-        this.agility = agility;
-    }
-}

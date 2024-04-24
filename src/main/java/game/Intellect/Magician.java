@@ -1,4 +1,6 @@
-package game;
+package game.Intellect;
+
+import game.Intellect.Intellect;
 
 public class Magician extends Intellect {
     int mana;

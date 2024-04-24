@@ -1,4 +1,6 @@
-package game;
+package game.Agility;
+
+import game.Agility.Agility;
 
 public class Crossbowman extends Agility {
     int bolt;
