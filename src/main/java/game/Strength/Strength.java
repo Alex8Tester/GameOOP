@@ -12,6 +12,31 @@ class Strength extends BaseUnit {
         super(name, HP, maxHP, attack, attackRange, defend, initiative, level, experience);
         this.strength = strength;
         this.maxStamina = this.stamina = stamina;
+    }
+
+    @Override
+    public void GetDamage(int damage) {
+        if (this.HP - damage > 0) {
+            this.HP -= damage;
+        }
+    }
+    @Override
+    public void Attack(BaseUnit target) {
+
+    }
+
+    @Override
+    public void Healing(BaseUnit target) {
+
+    }
+
+    @Override
+    public void Attack(BaseUnit target) {
+
+    }
+
+    @Override
+    public void Healing(BaseUnit target) {
 
     }
 }

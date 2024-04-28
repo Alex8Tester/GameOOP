@@ -1,7 +1,11 @@
 package game.Strength;
 
-public class Peasant {
-    public Peasant(String name, int HP, int maxHP, int attack, int attackRange, int defend, int initiative, int level, int experience, int strength, int stamina, int maxStamina) {
-        super(name, HP, maxHP, attack, attackRange, defend, initiative, level, experience, strength, stamina, maxStamina);
+public class Peasant extends Strength {
+
+    public Peasant(String name, int HP, int maxHP, int attack, int attackRange, int defense, int damage_resist, int initiative, int level, int experience) {
+        super(name, HP, maxHP, attack, attackRange, defense, initiative, level, experience);
+    }
+    public String getInfo() {
+        return String.format("Class: %s %s", getClass().getSimpleName(), super.getInfo());
     }
 }

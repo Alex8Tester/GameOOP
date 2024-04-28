@@ -1,11 +1,19 @@
 package game.Agility;
-
-import game.Agility.Agility;
-
+import java.util.List;
+import game.BaseUnit;
 public class Rogue extends Agility {
     int venom;
     double stealth;
-    public Rogue(String name, int HP, int maxHP, int attack, int attackRange, int defend, int initiative, int level, int experience, int agility) {
-        super(name, HP, maxHP, attack, attackRange, defend, initiative, level, experience, agility);
+    public Rogue(String name, int x, int y) {
+        super(name, 100, 100, 30, 1, 15, 2, 1, 0, 40, x, y);
+        this.venom = venom;
+        this.stealth = stealth;
+    }
+    public String getInfo() {
+        return String.format("Class: %s %s", getClass().getSimpleName(), super.getInfo());
+    }
+    @Override
+    public void step(List<BaseUnit> team1, List<BaseUnit> team2) {
+        super.step(team1, team2);
     }
 }

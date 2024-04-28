@@ -1,11 +1,20 @@
 package game.Agility;
-
-import game.Agility.Agility;
+import game.BaseUnit;
+import java.util.List;
 
 public class Crossbowman extends Agility {
     int bolt;
     int accuracy;
-    public Crossbowman(String name, int HP, int maxHP, int attack, int attackRange, int defend, int initiative, int level, int experience, int agility) {
-        super(name, HP, maxHP, attack, attackRange, defend, initiative, level, experience, agility);
+    public Crossbowman(String name, int x, int y) {
+        super(name, 120, 120, 25, 1, 15, 2, 1, 0, 40, x, y);
+        this.bolt = bolt;
+        this.accuracy = accuracy;
+    }
+    public String getInfo() {
+        return String.format("Class: %s %s", getClass().getSimpleName(), super.getInfo());
+    }
+    @Override
+    public void step(List<BaseUnit> team1, List<BaseUnit> team2) {
+        super.step(team1, team2);
     }
 }
