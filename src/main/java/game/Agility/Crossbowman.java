@@ -3,8 +3,8 @@ import game.BaseUnit;
 import java.util.List;
 
 public class Crossbowman extends Agility {
-    int bolt;
-    int accuracy;
+    protected int bolt;
+    protected int accuracy;
     public Crossbowman(String name, int x, int y) {
         super(name, 120, 120, 25, 1, 15, 2, 1, 0, 40, x, y);
         this.bolt = bolt;
