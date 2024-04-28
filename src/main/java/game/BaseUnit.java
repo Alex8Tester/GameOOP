@@ -54,19 +54,19 @@ public abstract class BaseUnit implements MyInterface {
      * @return nearby enemy
     */
     public BaseUnit findNearestTarget(List<BaseUnit> targets) {
-    if (targets == null || targets.isEmpty()) {
-    throw new IllegalArgumentException("Enemies was not found!");
-    }
-    BaseUnit nearestTarget = null;
-    double minDistanse = Double.MAX_VALUE;
-    for (BaseUnit target : targets) {
-    double distance = this.position.getDistance(target.position);
-    if (distance < minDistanse) {
-    minDistanse = distance;
-    nearestTarget = target;
-    }
-    }
-    return nearestTarget;
+        if (targets == null || targets.isEmpty()) {
+            throw new IllegalArgumentException("Enemies was not found!");
+        }
+        BaseUnit nearestTarget = null;
+        double minDistanse = Double.MAX_VALUE;
+        for (BaseUnit target : targets) {
+            double distance = this.position.getDistance(target.position);
+            if (distance < minDistanse) {
+                minDistanse = distance;
+                nearestTarget = target;
+            }
+        }
+        return nearestTarget;
     }
 }
 
