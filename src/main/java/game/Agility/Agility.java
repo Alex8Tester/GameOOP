@@ -1,7 +1,5 @@
 package game.Agility;
-
 import game.BaseUnit;
-
 import java.util.List;
 
 public class Agility extends BaseUnit {

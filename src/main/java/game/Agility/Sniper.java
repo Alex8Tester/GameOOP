@@ -1,6 +1,7 @@
 package game.Agility;
-import java.util.List;
 import game.BaseUnit;
+import java.util.List;
+
 
 
 public class Sniper extends Agility {
