@@ -3,7 +3,7 @@ import game.BaseUnit;
 import java.util.List;
 
 public class Agility extends BaseUnit {
-    private int agility;
+    protected int agility;
 
     public Agility(String name, int HP, int maxHP, int attack, int attackRange, int defense, int initiative, int level, int experience,
                    int agility, int x, int y) {
