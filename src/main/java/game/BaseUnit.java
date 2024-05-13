@@ -27,7 +27,7 @@ public abstract class BaseUnit implements MyInterface {
     }
 
     public String getInfo() {
-        return String.format("Name: %s HP: %d LVL: %d", this.name, this.hp, this.level);
+        return String.format("Name: %s HP: %d LVL: %d", this.name, this.HP, this.level);
     }
 
     public String getInfoPos() {
