@@ -17,6 +17,10 @@ public class Position {
         this.y = valueY;
 
     }
+    public Position getDiffPos(Position target) {
+        Position dif = new Position(x - target.x, y - target.y);
+        return dif;
+    }
 
     /**
      * Check distance on between hero and target
@@ -24,7 +28,6 @@ public class Position {
      * @return distance
      */
     public double getDistance(Position target){
-
         return Math.sqrt(Math.pow(this.x - target.x, 2) + Math.pow(this.y - target.y, 2));
     }
 }

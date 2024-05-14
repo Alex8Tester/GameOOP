@@ -11,8 +11,10 @@ public abstract class BaseUnit implements MyInterface {
     protected int initiative;
     protected int level;
     protected int experience;
+    public Position position;
 
-    Position position;
+    int x;
+    int y;
     public BaseUnit(String name, int HP, int maxHP, int attack, int attackRange, int defend,
                 int initiative, int level, int experience, int x, int y){
         this.name = name;
@@ -26,28 +28,64 @@ public abstract class BaseUnit implements MyInterface {
         position = new Position(x, y);
     }
 
-    public String getInfo() {
-        return String.format("Name: %s HP: %d LVL: %d", this.name, this.HP, this.level);
+//    Определяем кто совершает ход
+    public int getInitiative() {
+        return initiative;
     }
 
-    public String getInfoPos() {
-        return String.format("Name: %s HP: %d Position: %s", this.name, this.hp, position);
+    public double getHP() {
+        return HP;
     }
-    public void GetDamage(int damage) {
-        if (this.HP - damage > 0) {
-            this.HP -= damage;
+    @Override
+    public String toString() {
+        return name + ", \u2665: " + HP + ", X : " + attack + ", \uD83D\uDEE1\uFE0F : " + defend;
+    }
+
+//    Метод получения урона
+    public void getDamage(double damage) {
+        HP -= damage;
+        if (HP < 0) {
+            HP = 0;
+            death();
         }
+        if (HP >= maxHP) HP = maxHP;
     }
-    public void Attack(BaseUnit target) {
-        int damage = this.attack - target.defense;
+
+//    Метод нанесения урона
+    public void hitEnemy (BaseUnit target) {
+        double damage = this.attack - target.defend;
+        target.getDamage(damage);
     }
-    public void Healing(BaseUnit target) {
+
+//    Лечить цель
+    public void Healing (BaseUnit target) {
         int heal = this.attack;
         target.HP += heal;
         if (target.HP > target.maxHP) {
             target.HP = target.maxHP;
         }
     }
+
+//    Определяем состояние смерти
+    public void death() {
+        if (getHP() <= 0) {
+            System.out.println("Персонаж умер...");
+        }
+    }
+
+    public boolean isDead() {
+        if (getHP() <= 0) {
+            return true;
+        }
+        return false;
+    }
+
+/**
+*   Метод атаки противника
+*   @param target - list enemies
+*   @return nearby Enemy
+*/
+
     /**
      * Method searching nearby enemy
      * @param targets list of enemies
@@ -67,6 +105,11 @@ public abstract class BaseUnit implements MyInterface {
             }
         }
         return nearestTarget;
+    }
+    public abstract void healing(BaseUnit target);
+
+    public String getInfo() {
+        return "";
     }
 }
 
