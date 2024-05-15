@@ -1,11 +1,12 @@
 package game;
+import java.util.ArrayList;
 import java.util.List;
-
+import java.lang.reflect.Array;
 public interface MyInterface {
     /**
      * Method play on step
-     * @param team1 - 1st team
-     * @param team2 - 2st team
+     * @param enemy - 1st team
+     * @param friend - 2st team
      */
-    public void step(List<BaseUnit>team1, List<BaseUnit>team2);
+    public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend);
 }

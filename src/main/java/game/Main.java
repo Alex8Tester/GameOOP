@@ -12,65 +12,124 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 public class Main {
+    public static ArrayList<BaseUnit> holyTeam = new ArrayList<>();
+    public static ArrayList<BaseUnit> darkTeam = new ArrayList<>();
+    public static ArrayList<BaseUnit> allTeam = new ArrayList<>();
+
+    private static String getName() {
+        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length - 1)]);
+    }
+
     public static void main(String[] args) {
+        initTeam();
+        allTeam.addAll(holyTeam);
+        allTeam.addAll(darkTeam);
+        allTeam.sort((o1, o2) -> o2.getInitiative() - o1.getInitiative());
+
+        System.out.println();
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = true;
+
+        while (true) {
+            View.view();
+            scanner.nextLine();
+            int summ1HP = 0;
+            int summ2HP = 0;
+            for (BaseUnit unit : holyTeam){
+                summ1HP += unit.getHP();
+            }
+            for (BaseUnit unit : darkTeam){
+                summ2HP += unit.getHP();
+            }
+            if (summ1HP == 0){
+                System.out.println("Winner team darkTeam");
+                flag = false;
+                break;
+            }
+            if (summ2HP == 0){
+                System.out.println("Winner team holyTeam");
+                flag = false;
+                break;
+            }
+            for (BaseUnit unit : allTeam) {
+                if (holyTeam.contains(unit)) unit.step(darkTeam, holyTeam);
+                else unit.step(holyTeam, darkTeam);
+            }
+        }
+    }
+
+    public static void initTeam() {
         int teamCount = 10;
         Random rand = new Random();
-
-        ArrayList<BaseUnit> team1 = new ArrayList<>();
-        ArrayList<BaseUnit> team2 = new ArrayList<>();
-        for (int i = 0; i < teamCount; i++) {
-            int val = rand.nextInt(7);
+        for (int i = 1; i < teamCount+1; i++) {
+            int val = rand.nextInt(8);
             int coordX1 = rand.nextInt(10);
             int coordX2 = rand.nextInt(10);
-            Position xy1 = new Position(coordX1, 0);
-            Position xy2 = new Position(coordX2, 9);
+            Position xy1 = new Position(coordX1, 1);
+            Position xy2 = new Position(coordX2, 10);
             switch (val) {
                 case 0:
-                    team1.add(new Crossbowman(getName(), i, 0));
-                    team2.add(new Crossbowman(getName(), i, 9));
+                    holyTeam.add(new Crossbowman(getName(), i, 1));
                     break;
                 case 1:
-                    team1.add(new Rogue(getName(), i, 0));
-                    team2.add(new Rogue(getName(), i, 9));
+                    holyTeam.add(new Rogue(getName(), i, 1));
                     break;
                 case 2:
-                    team1.add(new Sniper(getName(), i, 0));
-                    team2.add(new Sniper(getName(), i, 9));
+                    holyTeam.add(new Sniper(getName(), i, 1));
                     break;
                 case 3:
-                    team1.add(new Magician(getName(), i, 0));
-                    team2.add(new Magician(getName(), i, 9));
+                    holyTeam.add(new Magician(getName(), i, 1));
                     break;
                 case 4:
-                    team1.add(new Monk(getName(), i, 0));
-                    team2.add(new Monk(getName(), i, 9));
+                    holyTeam.add(new Monk(getName(), i, 1));
                     break;
                 case 5:
-                    team1.add(new Peasant(getName(), i, 0));
-                    team2.add(new Peasant(getName(), i, 9));
+                    holyTeam.add(new Peasant(getName(), i, 1));
                     break;
                 case 6:
-                    team1.add(new Spearman(getName(), i, 0));
-                    team2.add(new Spearman(getName(), i, 9));
+                    holyTeam.add(new Spearman(getName(), i, 1));
                     break;
-                case 7;
-                    team1.add(new Piciner(getName(), i, 0));
-                    team2.add(new Piciner(getName(), i, 0));
+                case 7:
+                    holyTeam.add(new Piciner(getName(), i, 1));
+                    break;
                 default:
                     break;
             }
         }
-        System.out.println("Team 1:");
-        for (BaseUnit a : team1) {
-            System.out.printf("Name: %s, Position: x: %d,y: %d\n", a.name, a.position.getX(), a.position.getY());
+        for (int i = 1; i < teamCount+1; i++) {
+            int val = rand.nextInt(8);
+            int coordX1 = rand.nextInt(10);
+            int coordX2 = rand.nextInt(10);
+            Position xy1 = new Position(coordX1, 1);
+            Position xy2 = new Position(coordX2, 10);
+            switch (val) {
+                case 0:
+                    darkTeam.add(new Crossbowman(getName(), i, 10));
+                    break;
+                case 1:
+                    darkTeam.add(new Rogue(getName(), i, 10));
+                    break;
+                case 2:
+                    darkTeam.add(new Sniper(getName(), i, 10));
+                    break;
+                case 3:
+                    darkTeam.add(new Magician(getName(), i, 10));
+                    break;
+                case 4:
+                    darkTeam.add(new Monk(getName(), i, 10));
+                    break;
+                case 5:
+                    darkTeam.add(new Peasant(getName(), i, 10));
+                    break;
+                case 6:
+                    darkTeam.add(new Spearman(getName(), i, 10));
+                    break;
+                case 7:
+                    darkTeam.add(new Piciner(getName(), i, 10));
+                    break;
+                default:
+                    break;
+            }
         }
-        System.out.println("Team 2:");
-        for (BaseUnit a : team2) {
-            System.out.printf("Name: %s, Position: x: %d,y: %d\n", a.name, a.position.getX(), a.position.getY());
-        }
-    }
-
-    private static String getName() {
-        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length - 1)]);
     }
 }
