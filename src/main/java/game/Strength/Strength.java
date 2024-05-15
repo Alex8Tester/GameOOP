@@ -1,6 +1,7 @@
 package game.Strength;
 import game.BaseUnit;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Strength extends BaseUnit {
     protected int strength;
@@ -13,26 +14,19 @@ public class Strength extends BaseUnit {
         this.strength = strength;
         this.maxStamina = this.stamina = stamina;
     }
-
     @Override
-    public void GetDamage(int damage) {
+    public void getDamage(double damage) {
         if (this.HP - damage > 0) {
             this.HP -= damage;
         }
     }
-
     @Override
-    public void Attack(BaseUnit target) {
-
+    public void hitEnemy(BaseUnit target) {
     }
-
     @Override
-    public void Healing(BaseUnit target) {
-
+    public void healing(BaseUnit target) {
     }
-
     @Override
-    public void step(List<BaseUnit> team1, List<BaseUnit> team2) {
-
+    public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend) {
     }
 }

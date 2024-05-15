@@ -1,5 +1,6 @@
 package game.Agility;
 import game.BaseUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sniper extends Agility {
@@ -11,10 +12,14 @@ public class Sniper extends Agility {
         this.ammo = ammo;
     }
     public String getInfo() {
-        return String.format("Class: %s %s", getClass().getSimpleName(), super.getInfo());
+        return "Снайпер";
     }
-    @Override
-    public void step(List<BaseUnit> team1, List<BaseUnit> team2) {
-        super.step(team1, team2);
+
+    public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend) {
+        if ((HP <= 0) || (ammo == 0)) return;
+        BaseUnit target = super.findNearestTarget(enemy);
+        if (target == null) return;
+        target.getDamage(this.attack);
+        ammo--;
     }
 }
