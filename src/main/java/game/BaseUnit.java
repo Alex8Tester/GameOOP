@@ -25,7 +25,7 @@ public abstract class BaseUnit implements MyInterface {
         this.initiative = initiative;
         this.level = level;
         this.experience = experience;
-        position = new Position(x, y);
+        this.position = new Position(x, y);
     }
 
 //    Определяем кто совершает ход
@@ -38,7 +38,7 @@ public abstract class BaseUnit implements MyInterface {
     }
     @Override
     public String toString() {
-        return name + ", \u2665: " + HP + ", X : " + attack + ", \uD83D\uDEE1\uFE0F : " + defend;
+        return getClass().getSimpleName() + " " + name + ", \u2665: " + HP + ",  ⚔ : " + attack + ", \uD83D\uDEE1\uFE0F :" + defend;
     }
 
 //    Метод получения урона
