@@ -16,10 +16,8 @@ public class Sniper extends Agility {
     }
 
     public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend) {
-        if ((HP <= 0) || (ammo == 0)) return;
-        BaseUnit target = super.findNearestTarget(enemy);
-        if (target == null) return;
-        target.getDamage(this.attack);
+        if ((getHP() <= 0) || (ammo == 0)) return;
+        hitEnemy(findNearestTarget(enemy));
         ammo--;
     }
 }

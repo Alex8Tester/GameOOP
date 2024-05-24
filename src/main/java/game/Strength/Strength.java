@@ -14,15 +14,7 @@ public class Strength extends BaseUnit {
         this.strength = strength;
         this.maxStamina = this.stamina = stamina;
     }
-    @Override
-    public void getDamage(double damage) {
-        if (this.HP - damage > 0) {
-            this.HP -= damage;
-        }
-    }
-    @Override
-    public void hitEnemy(BaseUnit target) {
-    }
+
     @Override
     public void healing(BaseUnit target) {
     }
