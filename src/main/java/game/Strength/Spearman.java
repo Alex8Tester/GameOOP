@@ -1,9 +1,8 @@
 package game.Strength;
 import game.BaseUnit;
 import game.Position;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Spearman extends Strength {
     protected int armor;

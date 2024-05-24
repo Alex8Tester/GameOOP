@@ -8,7 +8,6 @@ import game.Strength.Peasant;
 import game.Strength.Piciner;
 import game.Strength.Spearman;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 public class Main {

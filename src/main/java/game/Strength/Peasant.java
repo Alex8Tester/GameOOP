@@ -1,6 +1,5 @@
 package game.Strength;
 import game.BaseUnit;
-import java.util.List;
 import java.util.ArrayList;
 
 public class Peasant extends Strength {
