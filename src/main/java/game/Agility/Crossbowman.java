@@ -13,6 +13,10 @@ public class Crossbowman extends Agility {
         this.bolt = 100;
         this.accuracy = 3;
     }
+    @Override
+    public String toString(){
+        return super.toString() + ", \u27 : " + bolt;
+    }
 
     public String getInfo() {
         return "Арбалетчик";

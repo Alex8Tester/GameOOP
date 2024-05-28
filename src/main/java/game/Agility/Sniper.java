@@ -11,6 +11,11 @@ public class Sniper extends Agility {
         this.accuracy = accuracy;
         this.ammo = ammo;
     }
+
+    @Override
+    public String toString(){
+        return super.toString() + ", \u27 : " + ammo;
+    }
     public String getInfo() {
         return "Снайпер";
     }
