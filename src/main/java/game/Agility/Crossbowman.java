@@ -15,7 +15,7 @@ public class Crossbowman extends Agility {
     }
     @Override
     public String toString(){
-        return super.toString() + ", \u27 : " + bolt;
+        return super.toString() + ", \u27b6 : " + bolt;
     }
 
     public String getInfo() {
