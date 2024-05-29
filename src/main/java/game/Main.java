@@ -29,7 +29,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
 
-        while (flag) {
+        while (true) {
             View.view();
             scanner.nextLine();
             int summ1HP = 0;

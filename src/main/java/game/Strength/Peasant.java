@@ -13,7 +13,6 @@ public class Peasant extends Strength {
         return "Фермер";
     }
     public void step(ArrayList<BaseUnit> targets, ArrayList<BaseUnit> friends) {
-
         if (getHP() <= 0) return;
         flag = false;
     }
