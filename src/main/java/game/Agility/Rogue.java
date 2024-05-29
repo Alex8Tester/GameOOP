@@ -19,6 +19,9 @@ public class Rogue extends Agility {
 
     public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend) {
         if (HP<=0) return;
+        if(findNearestTarget(enemy) == null){
+            return;
+        }
 
         BaseUnit target = super.findNearestTarget(enemy);
         if (position.getDistance(target.position) < 2){

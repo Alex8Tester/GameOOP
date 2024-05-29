@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Peasant extends Strength {
     int ammo;
-    boolean flag;
+    public boolean flag;
     public Peasant(String name, int x, int y) {
         super(name, 45, 45, 4, 2, 5, 1, 1, 0, x, y);
         ammo = 0;

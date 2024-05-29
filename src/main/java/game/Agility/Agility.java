@@ -12,18 +12,11 @@ public class Agility extends BaseUnit {
         super(name, HP, maxHP, attack, attackRange, defense, initiative, level, experience, x, y);
         this.agility = agility;
     }
-    @Override
-    public void getDamage(double damage) {
-        if (this.HP - damage > 0) {
-            this.HP -= damage;
-        }
-    }
 
     @Override
     public void healing(BaseUnit target) {
 
     }
-
     @Override
     public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend) {
     }

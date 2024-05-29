@@ -1,6 +1,6 @@
 package game.Intellect;
 import game.BaseUnit;
-
+import game.MyInterface;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,11 +33,11 @@ public class Monk extends Intellect {
             System.out.println("Флаг установлен");
         }
 
-        if (flag && mana == 10) {
+        if (flag && mana == 20) {
             deadlist.sort((o1, o2) -> o2.getInitiative() - o1.getInitiative());
-            deadlist.getFirst().setHp(maxHP);
+            deadlist.getClass().setHp(maxHP);
             mana = 0;
-            System.out.println("Воскресил: " + deadlist.getFirst().getName());
+            System.out.println("Воскресил: " + deadlist.getClass().getName());
             flag = false;
             return;
         }
@@ -49,7 +49,7 @@ public class Monk extends Intellect {
             mana++;
             return;
         }
-        Healing(sortlist.getFirst());
+        Healing(sortlist.getClass());
         mana -= 2;
     }
 }

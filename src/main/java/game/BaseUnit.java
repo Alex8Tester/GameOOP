@@ -14,8 +14,6 @@ public abstract class BaseUnit implements MyInterface {
     protected int experience;
     public Position position;
 
-    int x;
-    int y;
     public BaseUnit(String name, int HP, int maxHP, int attack, int attackRange, int defend,
                 int initiative, int level, int experience, int x, int y){
         this.name = name;
@@ -37,6 +35,14 @@ public abstract class BaseUnit implements MyInterface {
     public double getHP() {
         return HP;
     }
+
+    public double setHp(double HP) {
+        return HP;
+    }
+
+    public String getName() {
+        return name;
+    }
     @Override
     public String toString() {
         return getClass().getSimpleName() + " " + name + ", \u2665: " + HP + ",  ⚔ : " + attack + ", \uD83D\uDEE1\uFE0F :" + defend;
@@ -47,7 +53,6 @@ public abstract class BaseUnit implements MyInterface {
         HP -= damage;
         if (HP < 0) {
             HP = 0;
-            death();
         }
         if (HP >= maxHP) HP = maxHP;
     }
@@ -57,8 +62,7 @@ public abstract class BaseUnit implements MyInterface {
         if (target != null) {
             double damage = this.attack - target.defend;
             target.getDamage(damage);
-        }
-        else return;
+        } else return;
     }
 
 //    Лечить цель
