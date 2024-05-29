@@ -8,6 +8,7 @@ public class Peasant extends Strength {
     public Peasant(String name, int x, int y) {
         super(name, 45, 45, 4, 2, 5, 1, 1, 0, x, y);
         ammo = 0;
+        flag = false;
     }
     public String getInfo(){
         return "Фермер";

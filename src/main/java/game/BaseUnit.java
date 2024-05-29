@@ -1,5 +1,6 @@
 package game;
 import java.util.List;
+import java.util.ArrayList;
 
 public abstract class BaseUnit implements MyInterface {
     protected String name;
@@ -53,8 +54,11 @@ public abstract class BaseUnit implements MyInterface {
 
 //    Метод нанесения урона
     public void hitEnemy (BaseUnit target) {
-        double damage = this.attack - target.defend;
-        target.getDamage(damage);
+        if (target != null) {
+            double damage = this.attack - target.defend;
+            target.getDamage(damage);
+        }
+        else return;
     }
 
 //    Лечить цель
@@ -67,11 +71,6 @@ public abstract class BaseUnit implements MyInterface {
     }
 
 //    Определяем состояние смерти
-    public void death() {
-        if (getHP() <= 0) {
-            System.out.println("Персонаж умер...");
-        }
-    }
 
     public boolean isDead() {
         if (getHP() <= 0) {
