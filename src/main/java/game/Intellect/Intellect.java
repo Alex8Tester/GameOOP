@@ -1,6 +1,5 @@
 package game.Intellect;
 import game.BaseUnit;
-import java.util.List;
 import java.util.ArrayList;
 
 public class Intellect extends BaseUnit {

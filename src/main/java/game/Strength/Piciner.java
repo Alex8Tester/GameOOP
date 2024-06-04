@@ -1,7 +1,6 @@
 package game.Strength;
 import game.BaseUnit;
 import game.Position;
-
 import java.util.ArrayList;
 
 
@@ -31,11 +30,16 @@ public class Piciner extends Strength {
             newposition.x += diff.x < 0 ? 1 : -1;
         else
             newposition.y += diff.y < 0 ? 1 : -1;
-
+        boolean flag = false;
         for (BaseUnit unit : friend) {
-            if (unit.position.equals(newposition) && unit.getHP() > 0) return;
-
+            flag = true;
+            if (unit.position.equals(newposition) && unit.getHP() > 0) {
+                flag = true;
+                break;
+            }
+            if (flag) {
+                this.position = newposition;
+            }
         }
-        this.position = newposition;
     }
 }

@@ -1,9 +1,7 @@
 package game.Agility;
 import game.BaseUnit;
 import game.Strength.Peasant;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class Sniper extends Agility {
     protected int accuracy;

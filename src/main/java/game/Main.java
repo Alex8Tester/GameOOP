@@ -128,6 +128,15 @@ public class Main {
                     break;
                 default:
                     break;
+//                System.out.println("Команда 1:");
+//                for (BaseUnit a : holyTeam) {
+//                    System.out.printf("Name: %s, Position: x: %d,y: %d\n", a.name, a.position.getX(), a.position.getY());
+//                }
+//
+//                System.out.println("Команда 2:");
+//                for (BaseUnit a : darkTeam) {
+//                    System.out.printf("Name: %s, Position: x: %d,y: %d\n", a.name, a.position.getX(), a.position.getY());
+//                }
             }
         }
     }

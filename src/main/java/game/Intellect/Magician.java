@@ -1,8 +1,7 @@
 package game.Intellect;
 import game.BaseUnit;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Magician extends Intellect {
     protected int mana;
@@ -13,7 +12,7 @@ public class Magician extends Intellect {
     }
 
     public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend) {
-        if ((getHP() <= 0 || (mana < 3)) {
+        if ((getHP() <= 0) || (mana < 3)) {
             mana += 1;
         } else {
             hitEnemy(findNearestTarget(enemy));

@@ -42,15 +42,15 @@ public abstract class BaseUnit implements MyInterface {
         return HP;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
     @Override
     public String toString() {
         return getClass().getSimpleName() + " " + name + ", \u2665: " + HP + ",  ⚔ : " + attack + ", \uD83D\uDEE1\uFE0F :" + defend;
     }
 
-//    Метод получения урона
+    /*    Метод получения урона
+     *   @param damage урон
+    */
     public void getDamage(double damage) {
         HP -= damage;
         if (HP < 0) {

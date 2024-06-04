@@ -2,6 +2,7 @@ package game.Strength;
 import game.BaseUnit;
 import java.util.ArrayList;
 
+
 public class Peasant extends Strength {
     int ammo;
     public boolean flag;
@@ -15,6 +16,6 @@ public class Peasant extends Strength {
     }
     public void step(ArrayList<BaseUnit> targets, ArrayList<BaseUnit> friends) {
         if (getHP() <= 0) return;
-        flag = false;
+        flag = true;
     }
 }

@@ -1,8 +1,7 @@
 package game.Intellect;
 import game.BaseUnit;
-import game.MyInterface;
 import java.util.ArrayList;
-import java.util.*;
+
 
 public class Monk extends Intellect {
     protected int mana;
