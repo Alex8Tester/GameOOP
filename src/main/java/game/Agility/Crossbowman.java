@@ -31,7 +31,6 @@ public class Crossbowman extends Agility {
         hitEnemy(findNearestTarget(enemy));
         bolt--;
             if (bolt < maxBolt){
-
                 for (BaseUnit unit : friend) {
                     if (unit.getInfo().equals("Фермер") && !((Peasant)unit).flag) {
                         ((Peasant) unit).flag = true;
