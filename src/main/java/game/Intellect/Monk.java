@@ -2,7 +2,7 @@ package game.Intellect;
 import game.BaseUnit;
 import game.MyInterface;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Monk extends Intellect {
     protected int mana;
@@ -11,7 +11,7 @@ public class Monk extends Intellect {
 
     public Monk(String name, int x, int y) {
         super(name, 90, 90, 8, 8, 7, 1, 1, 0, 70, x, y);
-        this.maxMana = this.mana = 20;
+        this.maxMana = this.mana = 10;
         flag = false;
     }
     public String getInfo() {
@@ -19,37 +19,6 @@ public class Monk extends Intellect {
     }
     @Override
     public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend) {
-        if (getHP() <= 0) return;
-        ArrayList<BaseUnit> sortlist = new ArrayList<>(friend);
-        ArrayList<BaseUnit> deadlist = new ArrayList<>();
-        sortlist.sort((o1, o2) -> (int) (o1.getHP() - o2.getHP()));
-        for (BaseUnit unit : sortlist) {
-            if (unit.getHP() == 0) {
-                deadlist.add(unit);
-            }
-        }
-        if (deadlist.size() > 3 ) {
-            flag = true;
-            System.out.println("Флаг установлен");
-        }
 
-        if (flag && mana == 20) {
-            deadlist.sort((o1, o2) -> o2.getInitiative() - o1.getInitiative());
-            deadlist.getClass().setHp(maxHP);
-            mana = 0;
-            System.out.println("Воскресил: " + deadlist.getClass().getName());
-            flag = false;
-            return;
-        }
-        if (flag) {
-            mana++;
-            return;
-        }
-        if (mana < 2) {
-            mana++;
-            return;
-        }
-        Healing(sortlist.getClass());
-        mana -= 2;
     }
 }

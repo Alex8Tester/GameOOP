@@ -19,5 +19,6 @@ public class Intellect extends BaseUnit {
     @Override
     public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend) {
 
+
     }
 }

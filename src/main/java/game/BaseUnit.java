@@ -1,11 +1,11 @@
 package game;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class BaseUnit implements MyInterface {
     protected String name;
-    protected int HP;
-    protected int maxHP;
+    protected double HP;
+    protected double maxHP;
     protected int attack;
     protected int attackRange;
     protected int defend;
@@ -13,8 +13,10 @@ public abstract class BaseUnit implements MyInterface {
     protected int level;
     protected int experience;
     public Position position;
+    String ClassName;
+    ArrayList deadlist;
 
-    public BaseUnit(String name, int HP, int maxHP, int attack, int attackRange, int defend,
+    public BaseUnit(String name, double HP, double maxHP, int attack, int attackRange, int defend,
                 int initiative, int level, int experience, int x, int y){
         this.name = name;
         this.maxHP = this.HP = HP;
@@ -76,6 +78,12 @@ public abstract class BaseUnit implements MyInterface {
 
 //    Определяем состояние смерти
 
+    public void death() {
+        if (getHP() <= 0) {
+            System.out.println("Персонаж умер...");
+        }
+
+    }
     public boolean isDead() {
         if (getHP() <= 0) {
             return true;
