@@ -12,7 +12,7 @@ public class Crossbowman extends Agility {
     protected int accuracy;
 
     public Crossbowman(String name, int x, int y) {
-        super(name, 120, 120, 25, 1, 15, 2, 1, 0, 40, x, y);
+        super(name, 120, 120, 100, 1, 15, 2, 1, 0, 40,5, x, y);
         this.maxBolt = this.bolt = 100;
         this.accuracy = 3;
     }

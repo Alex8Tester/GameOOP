@@ -8,8 +8,8 @@ public class Strength extends BaseUnit {
     protected int maxStamina;
 
     public Strength(String name, int HP, int maxHP, int attack, int attackRange, int defense, int initiative,
-                    int level, int experience, int x, int y) {
-        super(name, HP, maxHP, attack, attackRange, defense, initiative, level, experience, x, y);
+                    int level, int experience, int speed, int x, int y) {
+        super(name, HP, maxHP, attack, attackRange, defense, initiative, level, experience, speed, x, y);
         this.strength = strength;
         this.maxStamina = this.stamina = stamina;
     }
@@ -19,5 +19,9 @@ public class Strength extends BaseUnit {
     }
     @Override
     public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend) {
+    }
+    @Override
+    public boolean isDead() {
+        return super.isDead();
     }
 }

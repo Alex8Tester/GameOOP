@@ -7,8 +7,8 @@ public class Peasant extends Strength {
     int ammo;
     public boolean flag;
     public Peasant(String name, int x, int y) {
-        super(name, 45, 45, 4, 2, 5, 1, 1, 0, x, y);
-        ammo = 0;
+        super(name, 45, 45, 4, 2, 5, 1, 1, 0, 5, x, y);
+        ammo = 12;
         flag = false;
     }
     public String getInfo(){
@@ -16,6 +16,6 @@ public class Peasant extends Strength {
     }
     public void step(ArrayList<BaseUnit> targets, ArrayList<BaseUnit> friends) {
         if (getHP() <= 0) return;
-        flag = true;
+        flag = false;
     }
 }

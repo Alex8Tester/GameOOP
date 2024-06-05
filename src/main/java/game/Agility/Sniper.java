@@ -8,7 +8,7 @@ public class Sniper extends Agility {
     protected int ammo;
     protected int maxAmmo;
     public Sniper(String name, int x, int y) {
-        super(name, 120, 120, 25, 1, 15, 2, 1, 0, 40, x, y);
+        super(name, 120, 120, 100, 1, 15, 2, 1, 0, 40, 5, x, y);
         this.accuracy = 3;
         this.maxAmmo = this.ammo = 100;
     }

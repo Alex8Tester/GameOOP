@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract class BaseUnit implements MyInterface {
     protected String name;
-    protected double HP;
+    public double HP;
     protected double maxHP;
     protected int attack;
     protected int attackRange;
@@ -13,11 +13,12 @@ public abstract class BaseUnit implements MyInterface {
     protected int level;
     protected int experience;
     public Position position;
+    public static int speed;
     String ClassName;
     ArrayList deadlist;
 
     public BaseUnit(String name, double HP, double maxHP, int attack, int attackRange, int defend,
-                int initiative, int level, int experience, int x, int y){
+                int initiative, int level, int experience, int speed, int x, int y){
         this.name = name;
         this.maxHP = this.HP = HP;
         this.attack = attack;
@@ -27,6 +28,8 @@ public abstract class BaseUnit implements MyInterface {
         this.level = level;
         this.experience = experience;
         this.position = new Position(x, y);
+        this.speed = speed;
+
     }
 
 //    Определяем кто совершает ход
@@ -38,7 +41,8 @@ public abstract class BaseUnit implements MyInterface {
         return HP;
     }
 
-    public double setHp(double HP) {
+    public double setHP(double HP) {
+        this.HP = HP;
         return HP;
     }
 
@@ -75,7 +79,9 @@ public abstract class BaseUnit implements MyInterface {
             target.HP = target.maxHP;
         }
     }
-
+    public static int getSpeed() {
+        return speed;
+    }
 //    Определяем состояние смерти
 
     public void death() {
@@ -118,6 +124,10 @@ public abstract class BaseUnit implements MyInterface {
         return nearestTarget;
     }
     public abstract void healing(BaseUnit target);
+
+    public String getFirst() {
+        return getFirst();
+    }
 
     public String getInfo() {
         return "";
