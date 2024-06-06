@@ -46,7 +46,7 @@ public class View {
         step++;
         Main.allTeam.forEach((v) -> l[0] = Math.max(l[0], v.toString().length()));
         System.out.print("_".repeat(l[0]*2));
-        System.out.println("");
+        System.out.println(" ");
         System.out.print(top10 + "    ");
         System.out.print("Blue side");
         System.out.print(" ".repeat(l[0]-9));

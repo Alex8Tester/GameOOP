@@ -1,15 +1,14 @@
 package game.Strength;
 import game.BaseUnit;
 import game.Position;
-
 import java.util.ArrayList;
 
 
 public class Piciner extends Strength {
     protected int armor;
     public Piciner(String name, int x, int y) {
-        super(name, 140, 140, 30, 3, 18, 3, 1, 0, x, y);
-    this.armor = 150;
+        super(name, 60, 75, 25, 3, 10, 3, 1, 0, 3, x, y);
+    this.armor = 10;
     }
     public String getInfo(){
         return "Пикинер";
@@ -17,6 +16,9 @@ public class Piciner extends Strength {
 
     public void step(ArrayList<BaseUnit> enemy, ArrayList<BaseUnit> friend) {
         if (HP <= 0) return;
+        if(findNearestTarget(enemy) == null){
+            return;
+        }
         BaseUnit target = super.findNearestTarget(enemy);
         if (position.getDistance(target.position) < 2) {
             hitEnemy(findNearestTarget(enemy));
@@ -28,11 +30,16 @@ public class Piciner extends Strength {
             newposition.x += diff.x < 0 ? 1 : -1;
         else
             newposition.y += diff.y < 0 ? 1 : -1;
-
+        boolean flag = false;
         for (BaseUnit unit : friend) {
-            if (unit.position.equals(newposition) && unit.getHP() > 0) return;
-
+            flag = true;
+            if (unit.position.equals(newposition) && unit.getHP() > 0) {
+                flag = true;
+                break;
+            }
+            if (flag) {
+                this.position = newposition;
+            }
         }
-        this.position = newposition;
     }
 }

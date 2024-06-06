@@ -1,5 +1,4 @@
 package game;
-
 public class Position {
     public int x;
     public int y;
@@ -18,6 +17,11 @@ public class Position {
         this.y = valueY;
 
     }
+
+    @Override
+    public String toString(){
+        return x + "," + y;
+    }
     public Position getDiffPos(Position target) {
         Position dif = new Position(x - target.x, y - target.y);
         return dif;
@@ -29,7 +33,11 @@ public class Position {
      * @return distance
      */
     public double getDistance(Position target){
-        return Math.sqrt(Math.pow(this.x - target.x, 2) + Math.pow(this.y - target.y, 2));
+        double dst =  Math.sqrt(Math.pow(this.x - target.x, 2) + Math.pow(this.y - target.y, 2));
+        return dst;
+    }
+    public boolean equals (Position target){
+        return x == target.x && y == target.y;
     }
 }
 

@@ -1,10 +1,11 @@
 package game;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseUnit implements MyInterface {
     protected String name;
-    protected int HP;
-    protected int maxHP;
+    public double HP;
+    protected double maxHP;
     protected int attack;
     protected int attackRange;
     protected int defend;
@@ -12,11 +13,12 @@ public abstract class BaseUnit implements MyInterface {
     protected int level;
     protected int experience;
     public Position position;
+    public static int speed;
+    protected String ClassName;
+    protected List deadlist;
 
-    int x;
-    int y;
-    public BaseUnit(String name, int HP, int maxHP, int attack, int attackRange, int defend,
-                int initiative, int level, int experience, int x, int y){
+    public BaseUnit(String name, double HP, double maxHP, int attack, int attackRange, int defend,
+                int initiative, int level, int experience, int speed, int x, int y){
         this.name = name;
         this.maxHP = this.HP = HP;
         this.attack = attack;
@@ -26,6 +28,8 @@ public abstract class BaseUnit implements MyInterface {
         this.level = level;
         this.experience = experience;
         this.position = new Position(x, y);
+        this.speed = speed;
+
     }
 
 //    Определяем кто совершает ход
@@ -36,25 +40,35 @@ public abstract class BaseUnit implements MyInterface {
     public double getHP() {
         return HP;
     }
+
+    public double setHP(double HP) {
+        this.HP = HP;
+        return HP;
+    }
+
+    public String getName() { return name; }
     @Override
     public String toString() {
         return getClass().getSimpleName() + " " + name + ", \u2665: " + HP + ",  ⚔ : " + attack + ", \uD83D\uDEE1\uFE0F :" + defend;
     }
 
-//    Метод получения урона
+    /*    Метод получения урона
+     *   @param damage урон
+    */
     public void getDamage(double damage) {
         HP -= damage;
         if (HP < 0) {
             HP = 0;
-            death();
         }
         if (HP >= maxHP) HP = maxHP;
     }
 
 //    Метод нанесения урона
     public void hitEnemy (BaseUnit target) {
-        double damage = this.attack - target.defend;
-        target.getDamage(damage);
+        if (target != null) {
+            double damage = this.attack - target.defend;
+            target.getDamage(damage);
+        } else return;
     }
 
 //    Лечить цель
@@ -65,14 +79,17 @@ public abstract class BaseUnit implements MyInterface {
             target.HP = target.maxHP;
         }
     }
-
+    public static int getSpeed() {
+        return speed;
+    }
 //    Определяем состояние смерти
+
     public void death() {
         if (getHP() <= 0) {
             System.out.println("Персонаж умер...");
         }
-    }
 
+    }
     public boolean isDead() {
         if (getHP() <= 0) {
             return true;
@@ -106,8 +123,7 @@ public abstract class BaseUnit implements MyInterface {
         }
         return nearestTarget;
     }
-    public abstract void healing(BaseUnit target);
-
+//    public abstract void healing(BaseUnit target);
     public String getInfo() {
         return "";
     }
