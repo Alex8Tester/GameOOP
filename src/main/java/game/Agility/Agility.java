@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Agility extends BaseUnit {
     protected int agility;
-    protected boolean flag;
+    public boolean flag;
 
     public Agility(String name, int HP, int maxHP, int attack, int attackRange, int defense, int initiative, int level, int experience,
                    int agility,int speed, int x, int y) {

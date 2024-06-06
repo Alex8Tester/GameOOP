@@ -6,7 +6,7 @@ public class Strength extends BaseUnit {
     protected int strength;
     protected int stamina;
     protected int maxStamina;
-    protected boolean flag;
+    public boolean flag;
 
     public Strength(String name, int HP, int maxHP, int attack, int attackRange, int defense, int initiative,
                     int level, int experience, int speed, int x, int y) {

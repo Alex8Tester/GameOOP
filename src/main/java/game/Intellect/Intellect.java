@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Intellect extends BaseUnit {
     protected int intellect;
-    protected boolean flag;
+    public boolean flag;
 
     public Intellect(String name, int HP, int maxHP, int attack, int attackRange, int defense, int initiative,
                      int level, int experience, int intellect, int speed, int x, int y) {
