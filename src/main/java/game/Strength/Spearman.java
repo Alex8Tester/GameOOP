@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class Spearman extends Strength {
     protected int armor;
     public Spearman(String name, int x, int y) {
-        super(name, 160, 160, 25, 2, 20, 3, 1, 0, 5, x, y);
-        this.armor = armor;
+        super(name, 60, 80, 25, 2, 10, 3, 1, 0, 5, x, y);
+        this.armor = 10;
     }
     public String getInfo(){
         return "Копейщик";

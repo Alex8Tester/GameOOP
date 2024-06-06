@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Peasant extends Strength {
     int ammo;
     public Peasant(String name, int x, int y) {
-        super(name, 45, 45, 4, 2, 5, 1, 1, 0, 5, x, y);
+        super(name, 45, 50, 5, 2, 1, 1, 1, 0, 7, x, y);
         ammo = 12;
         flag = false;
     }

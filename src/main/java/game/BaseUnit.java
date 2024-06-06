@@ -123,7 +123,7 @@ public abstract class BaseUnit implements MyInterface {
         }
         return nearestTarget;
     }
-
+//    public abstract void healing(BaseUnit target);
     public String getInfo() {
         return "";
     }

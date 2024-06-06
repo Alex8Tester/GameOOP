@@ -7,7 +7,7 @@ public class Magician extends Intellect {
     protected int mana;
     protected int maxMana;
     public Magician(String name, int x, int y) {
-        super(name, 80, 80, 10, 8, 6, 1, 1, 12,60,4, x, y);
+        super(name, 45, 60, 15, 5, 5, 1, 1, 15,45,4, x, y);
         this.maxMana = this.mana = 10;
         flag = false;
     }

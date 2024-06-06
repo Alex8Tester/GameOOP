@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class Piciner extends Strength {
     protected int armor;
     public Piciner(String name, int x, int y) {
-        super(name, 140, 140, 30, 3, 18, 3, 1, 0, 5, x, y);
-    this.armor = 150;
+        super(name, 60, 75, 25, 3, 10, 3, 1, 0, 3, x, y);
+    this.armor = 10;
     }
     public String getInfo(){
         return "Пикинер";
