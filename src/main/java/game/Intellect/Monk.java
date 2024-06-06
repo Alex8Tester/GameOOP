@@ -1,14 +1,12 @@
 package game.Intellect;
 import game.BaseUnit;
 import java.util.ArrayList;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Monk extends Intellect {
     protected int mana;
     protected int maxMana;
-    boolean flag;
 
     public Monk(String name, int x, int y) {
         super(name, 90, 90, 8, 8, 7, 1, 1, 0, 70, 4, x, y);
@@ -24,7 +22,7 @@ public class Monk extends Intellect {
 
         List<BaseUnit> sortList = new ArrayList<>(friend);
         List<BaseUnit> deadList = sortList.stream()
-                .filter(unit -> unit.getHP() == 0)
+                .filter(BaseUnit -> BaseUnit.getHP() == 0)
                 .collect(Collectors.toList());
 
         if (deadList.size() > 3) {

@@ -14,8 +14,8 @@ public abstract class BaseUnit implements MyInterface {
     protected int experience;
     public Position position;
     public static int speed;
-    String ClassName;
-    ArrayList deadlist;
+    protected String ClassName;
+    protected List deadlist;
 
     public BaseUnit(String name, double HP, double maxHP, int attack, int attackRange, int defend,
                 int initiative, int level, int experience, int speed, int x, int y){
@@ -122,11 +122,6 @@ public abstract class BaseUnit implements MyInterface {
             }
         }
         return nearestTarget;
-    }
-    public abstract void healing(BaseUnit target);
-
-    public String getFirst() {
-        return getFirst();
     }
 
     public String getInfo() {
