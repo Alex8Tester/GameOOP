@@ -26,9 +26,9 @@ public class Sniper extends Agility {
         hitEnemy(findNearestTarget(enemy));
         ammo--;
         if (ammo < maxAmmo) {
-            for (BaseUnit unit : friend) {
-                if (unit.getInfo().equals("Фермер") && !((Peasant)unit).flag) {
-                    ((Peasant)unit).flag = true;
+            for (BaseUnit BaseUnit : friend) {
+                if (BaseUnit.getInfo().equals("Фермер") && !((Peasant)BaseUnit).flag) {
+                    ((Peasant)BaseUnit).flag = true;
                     ammo++;
                     return;
                 }

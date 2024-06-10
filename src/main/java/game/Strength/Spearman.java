@@ -29,9 +29,9 @@ public class Spearman extends Strength {
             newposition.x += diff.x < 0 ? 1 : -1;
         else
             newposition.y += diff.y < 0 ? 1 : -1;
-        for (BaseUnit unit : friend) {
+        for (BaseUnit BaseUnit : friend) {
             flag = true;
-            if (unit.position.equals(newposition) && unit.getHP() > 0) {
+            if (BaseUnit.position.equals(newposition) && BaseUnit.getHP() > 0) {
                 flag = true;
                 break;
             }

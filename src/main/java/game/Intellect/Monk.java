@@ -2,7 +2,6 @@ package game.Intellect;
 import game.BaseUnit;
 import java.util.ArrayList;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Monk extends Intellect {
     protected int mana;
@@ -22,9 +21,9 @@ public class Monk extends Intellect {
         List<BaseUnit> sortList = new ArrayList<>(friend);
         List<BaseUnit> deadList = new ArrayList<>();
         sortList.sort((o1, o2) -> (int) (o1.getHP() - o2.getHP()));
-        for (BaseUnit unit : sortList) {
-            if (unit.getHP() == 0) {
-                deadList.add(unit);
+        for (BaseUnit BaseUnit : sortList) {
+            if (BaseUnit.getHP() == 0) {
+                deadList.add(BaseUnit);
             }
         }
 

@@ -34,11 +34,11 @@ public class Main {
             scanner.nextLine();
             int summ1HP = 0;
             int summ2HP = 0;
-            for (BaseUnit unit : holyTeam){
-                summ1HP += unit.getHP();
+            for (BaseUnit BaseUnit : holyTeam){
+                summ1HP += BaseUnit.getHP();
             }
-            for (BaseUnit unit : darkTeam){
-                summ2HP += unit.getHP();
+            for (BaseUnit BaseUnit : darkTeam){
+                summ2HP += BaseUnit.getHP();
             }
             if (summ1HP == 0){
                 System.out.println("Winner team darkTeam");
@@ -50,9 +50,9 @@ public class Main {
                 flag = false;
                 break;
             }
-            for (BaseUnit unit : allTeam) {
-                if (holyTeam.contains(unit)) unit.step(darkTeam, holyTeam);
-                else unit.step(holyTeam, darkTeam);
+            for (BaseUnit BaseUnit : allTeam) {
+                if (holyTeam.contains(BaseUnit)) BaseUnit.step(darkTeam, holyTeam);
+                else BaseUnit.step(holyTeam, darkTeam);
             }
         }
     }

@@ -24,14 +24,14 @@ public class View {
     }
     private static String getChar(int x, int y){
         String out = "| ";
-        for (BaseUnit human: Main.allTeam) {
-            if (human.position.getX() == x && human.position.getY() == y){
-                if (human.getHP() == 0) {
-                    out = "|" + (AnsiColors.ANSI_RED + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+        for (BaseUnit BaseUnit: Main.allTeam) {
+            if (BaseUnit.position.getX() == x && BaseUnit.position.getY() == y){
+                if (BaseUnit.getHP() == 0) {
+                    out = "|" + (AnsiColors.ANSI_RED + BaseUnit.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                     break;
                 }
-                if (Main.darkTeam.contains(human)) out = "|" + (AnsiColors.ANSI_GREEN + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
-                if (Main.holyTeam.contains(human)) out = "|" + (AnsiColors.ANSI_BLUE + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.darkTeam.contains(BaseUnit)) out = "|" + (AnsiColors.ANSI_GREEN + BaseUnit.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.holyTeam.contains(BaseUnit)) out = "|" + (AnsiColors.ANSI_BLUE + BaseUnit.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                 break;
             }
         }

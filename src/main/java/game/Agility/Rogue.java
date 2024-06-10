@@ -37,9 +37,9 @@ public class Rogue extends Agility {
             newposition.y += diff.y < 0 ? 1 : -1;
 
         boolean flag = false;
-        for (BaseUnit unit : friend) {
+        for (BaseUnit BaseUnit : friend) {
             flag = true;
-            if (unit.position.equals(newposition) && unit.getHP() > 0) {
+            if (BaseUnit.position.equals(newposition) && BaseUnit.getHP() > 0) {
                 flag = true;
                 break;
             }
